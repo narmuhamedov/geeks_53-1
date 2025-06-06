@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новостной детальный пост</title>
+</head>
+<body>
+  <h1>{{ blog_id.title }}</h1>
+  <p>{{ blog_id.description }}</p>
+  <p>{{ blog_id.type_blog }}</p>
+  <p>{{ blog_id.created_at }}</p>
+  <img src="{{ blog_id.image.url }}" alt="" width="200" height="200">
+
+</body>
+</html>

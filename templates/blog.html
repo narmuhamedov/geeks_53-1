@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новостной пост</title>
+</head>
+<body>
+  
+  <!-- Джинжер нужен для вставки backend кода в html разметку т.е blog.html -->
+  <ol>
+      {% for i in blog_list %}
+      <li>
+        <!-- Двойные фигурные скобки нужны для передачи переменных из модельки Blog -->
+        <p>{{ i.title }}</p>
+        <p>{{ i.created_at }}</p>
+        <button><a href="/news_posts/{{ i.id }}/">Читать подробнее</a></button>
+      </li>
+      {%  endfor  %}
+  </ol>
+
+</body>
+</html>
