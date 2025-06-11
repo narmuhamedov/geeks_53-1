@@ -23,3 +23,13 @@ class Blog(models.Model):
     verbose_name = 'новость'
     verbose_name_plural = 'новости'
 
+
+
+class Reviews(models.Model):
+  choice_news = models.ForeignKey(Blog, null=True, on_delete=models.CASCADE, related_name='post', verbose_name='post')
+  text = models.TextField(verbose_name='введите комментарий')
+  created_at = models.DateTimeField(auto_now_add=True)
+
+  def __str__(self):
+    return f'{self.choice_news}--{self.text}'
+  

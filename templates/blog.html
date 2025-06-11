@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,9 @@
   <title>Новостной пост</title>
 </head>
 <body>
-  
+<!--fff-->
+    <img src="{% static 'img/pic1.png' %}" alt="" width="300" height="200">
+
   <!-- Джинжер нужен для вставки backend кода в html разметку т.е blog.html -->
   <ol>
       {% for i in blog_list %}

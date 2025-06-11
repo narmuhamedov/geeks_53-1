@@ -11,6 +11,17 @@
   <p>{{ blog_id.type_blog }}</p>
   <p>{{ blog_id.created_at }}</p>
   <img src="{{ blog_id.image.url }}" alt="" width="200" height="200">
+  
+  <hr><hr>
+   
+  <ol>
+     {% for i in blog_id.post.all %}
+     <li>
+      <p>{{ i.text }}</p>
+      <p>{{ i.created_at }}</p>
+     </li>
+     {% endfor %}
+  </ol>
 
 </body>
 </html>
