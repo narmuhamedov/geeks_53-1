@@ -9,7 +9,8 @@
 <body>
 <!--fff-->
     <img src="{% static 'img/pic1.png' %}" alt="" width="300" height="200">
-
+    <a href="{% url 'todo_list' %}">TODO</a>
+    <a href="admin/" target="_blank">Админка</a>
   <!-- Джинжер нужен для вставки backend кода в html разметку т.е blog.html -->
   <ol>
       {% for i in blog_list %}
