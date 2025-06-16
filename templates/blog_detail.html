@@ -18,8 +18,15 @@
      {% for i in blog_id.post.all %}
      <li>
       <p>{{ i.text }}</p>
+      <p>{{ i.author }}</p>
       <p>{{ i.created_at }}</p>
+      <p>{{ i.mark }}</p>
      </li>
+     {% if avg_rating %}
+  <p>Средняя оценка: {{ avg_rating|floatformat:1 }}</p>
+{% else %}
+  <p>Оценок пока нет</p>
+{% endif %}
      {% endfor %}
   </ol>
 

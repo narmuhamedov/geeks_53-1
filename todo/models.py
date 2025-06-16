@@ -1,4 +1,5 @@
 from django.db import models
+from blog.models import Blog
 
 class TodoModel(models.Model):
     task = models.CharField(max_length=100)

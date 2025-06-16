@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 # После того когда вы окончательно создали таблицу как указан пример блога ниже
 # Проводим миграции python manage.py makemigrations затем python manage.py migrate
 # После этого заходите в файл admin.py и регистрируете его 
@@ -28,6 +29,11 @@ class Blog(models.Model):
 class Reviews(models.Model):
   choice_news = models.ForeignKey(Blog, null=True, on_delete=models.CASCADE, related_name='post', verbose_name='post')
   text = models.TextField(verbose_name='введите комментарий')
+  author = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+  mark =  models.PositiveIntegerField(null=True, validators=[
+    MinValueValidator(1, message="Оценка должна быть не меньше 1."),
+            MaxValueValidator(5, message="Оценка должна быть не больше 5.")
+  ])
   created_at = models.DateTimeField(auto_now_add=True)
 
   def __str__(self):
