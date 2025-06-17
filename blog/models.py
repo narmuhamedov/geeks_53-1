@@ -35,7 +35,7 @@ class Reviews(models.Model):
             MaxValueValidator(5, message="Оценка должна быть не больше 5.")
   ])
   created_at = models.DateTimeField(auto_now_add=True)
-
+  
   def __str__(self):
     return f'{self.choice_news}--{self.text}'
   
