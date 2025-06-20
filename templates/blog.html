@@ -12,7 +12,16 @@
     <a href="{% url 'todo_list' %}">TODO</a>
     <a href="{% url 'users:register' %}">Регистрация</a>
     <a href="admin/" target="_blank">Админка</a>
+    <a href="{url 'all_products'}">Продукты Хэш теги</a>
   <!-- Джинжер нужен для вставки backend кода в html разметку т.е blog.html -->
+    
+  <!-- Поиск   -->
+    <form action="{% url 'search' %}" method="GET">
+      <input type="text" type="search" name="s" placeholder="Поиск новости">
+      <button type="submit">Поиск</button>
+    </form>
+  <!-- Поиск-->
+
   <ol>
       {% for i in blog_list %}
       <li>
@@ -23,6 +32,22 @@
       </li>
       {%  endfor  %}
   </ol>
+
+   <!-- Пагинация -->
+  <div>
+    {% if blog_list.has_previous %}
+      <a href="?page=1">« Первая</a>
+      <a href="?page={{ blog_list.previous_page_number }}">‹ Предыдущая</a>
+    {% endif %}
+
+    <span>Страница {{ blog_list.number }} из {{ blog_list.paginator.num_pages }}</span>
+
+    {% if blog_list.has_next %}
+      <a href="?page={{ blog_list.next_page_number }}">Следующая ›</a>
+      <a href="?page={{ blog_list.paginator.num_pages }}">Последняя »</a>
+    {% endif %}
+  </div>
+  <!-- Пагинация -->
 
 </body>
 </html>

@@ -2,6 +2,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 from . import models, forms
 #CRUD  - CREATE READ UPDATE DELETE
 
+def search_todo(request):
+    query = request.GET.get('q', '')
+    todo_lst = models.TodoModel.objects.filter(task__icontains = query) if query else models.TodoModel.objects.none
+    context = {
+        'q': query,
+        'todo_lst': todo_lst
+    }
+    return render(request, template_name='todo_lst.html', context=context)
+
+
+
 def create_todo_view(request):
     if request.method == 'POST':
         form = forms.TodoForm(request.POST, request.FILES)

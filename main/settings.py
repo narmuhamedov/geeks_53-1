@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'blog',
     'todo',
     'users',
+    'product',
+    'OneToOne',
 ]
 
 MIDDLEWARE = [

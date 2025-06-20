@@ -7,17 +7,22 @@
 </head>
 <body>
     <a href="{% url 'create_todo' %}">Добавить задачу</a>
+    <form action="{% url 'search_todo' %}">
+        <input type="text" type="search" name="q" placeholder="Поиск задач">
+        <button type="submit">Поиск</button>
+    </form>
     <h1>Список задач</h1>
-    <ol>
+    <ul>
         {% for i in todo_lst %}
         <li>
             <p>{{ i.task }}</p>
+            <p>{{ i.read_blog }}</p>
             <p>{{ i.created_at }}</p>
             <p>{{ i.status }}</p>
             <a href="/todo_list/{{i.id}}/delete/">Удалить</a>
             <a href="/todo_list/{{i.id}}/update/">Изменить</a>
         </li>
         {% endfor %}
-    </ol>
+    </ul>
 </body>
 </html>

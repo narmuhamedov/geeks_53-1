@@ -1,0 +1,13 @@
+<a href="{% url 'all_products' %}">Все продукты</a>
+<ol>
+      {% for i in drinks_product %}
+      <li>
+        <!-- Двойные фигурные скобки нужны для передачи переменных из модельки Blog -->
+        <p>{{ i.title }}</p>
+        <p>{{ i.created_at }}</p>
+        {% for tag in i.tags.all %}
+        <p>{{ tag.name }}</p>
+        {% endfor %}
+      </li>
+      {%  endfor  %}
+  </ol>
