@@ -11,7 +11,7 @@ class Blog(models.Model):
   description = models.TextField(verbose_name='Дайте описание блога')
   TYPE_BLOG = (
     ('IT', 'IT'),
-    ('Business', 'Business'),
+    ('Business', 'Business'),   
     ('SMM', 'SMM')
   )
   type_blog = models.CharField(max_length=100, choices=TYPE_BLOG)

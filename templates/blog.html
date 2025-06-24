@@ -12,7 +12,7 @@
     <a href="{% url 'todo_list' %}">TODO</a>
     <a href="{% url 'users:register' %}">Регистрация</a>
     <a href="admin/" target="_blank">Админка</a>
-    <a href="{url 'all_products'}">Продукты Хэш теги</a>
+    <a href="{%url 'all_products'%}">Продукты Хэш теги</a>
   <!-- Джинжер нужен для вставки backend кода в html разметку т.е blog.html -->
     
   <!-- Поиск   -->
@@ -34,7 +34,7 @@
   </ol>
 
    <!-- Пагинация -->
-  <div>
+  <!-- <div>
     {% if blog_list.has_previous %}
       <a href="?page=1">« Первая</a>
       <a href="?page={{ blog_list.previous_page_number }}">‹ Предыдущая</a>
@@ -47,7 +47,7 @@
       <a href="?page={{ blog_list.paginator.num_pages }}">Последняя »</a>
     {% endif %}
   </div>
-  <!-- Пагинация -->
+  Пагинация -->
 
 </body>
 </html>

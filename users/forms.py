@@ -1,7 +1,7 @@
 from django import forms
 from . import models
-from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from captcha.fields import CaptchaField
 
 GENDER = (
     ('m', 'm'),
@@ -36,3 +36,7 @@ class CustomRegisterForm(UserCreationForm):
         if commit:
             user.save()
         return user 
+
+
+class LoginWithCaptchaForm(AuthenticationForm):
+    captcha = CaptchaField()

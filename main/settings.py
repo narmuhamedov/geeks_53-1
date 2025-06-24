@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'users',
     'product',
     'OneToOne',
+    'captcha',
 ]
 
 MIDDLEWARE = [
